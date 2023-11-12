@@ -1,0 +1,23 @@
+name: Display Name Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  display-name-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run bash script with last and first name
+      run: |
+        chmod +x ./display_name.sh
+        ./display_name.sh
+
+    - name: Build and Run Docker Image Using Script
+      run: |
+        chmod +x ./run_docker.sh
+        ./run_docker.sh
